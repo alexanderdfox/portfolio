@@ -1,133 +1,417 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv='Content-Type' content='text/html;charset=utf-8'></meta>
-		<meta name="google-site-verification" content="fTVpHzNSQN8NrZe6DR_W7VYFVO3BXmFdfHtxavK153A" />
-		<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/x3dom/release/x3dom.css'></link>
-		<script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>
-		<style>
-			x3d,X3D {
-				border:none;
-				background: url('background.jpg') center center no-repeat;
-				background-size: contain;
-				z-index: 1;
-			}
-			#scene {
-				height: 100%;
-				top: 0px;
-				bottom: 0px;
-				left: 0px;
-				right: 0px;
-				position: fixed;
-			}
-			.portfolio {
-				position: fixed;
-				top: 50px;
-				left: 45%;
-				text-align: center;
-				color: white;
-				z-index: 2;
-				font-size: 20px;
-			}
-			#webpage {
-				position: fixed;
-				bottom: 60px;
-				left: 45%;
-				text-align: center;
-				color: white;
-				z-index: 2;
-				font-size: 20px;
-			}
-			a {
-				color: white;
-				text-decoration: none;
-			}
-			a:hover {
-				color: lightblue;
-			}
-			body {
-				background: black;
-			}
-		</style>
-		<script type="text/javascript">
-			function randomColor(id) {
-				if (id == "Tetris__MA_I") {
-					document.getElementById("webpage").innerText = "Go to Pixel Ranchers";
-				}
-				else if (id == "Tetris__MA_O") {
-					document.getElementById("webpage").innerText = "Go to Thingiverse Portfolio";
-				}
-				else if (id == "Tetris__MA_S") {
-					document.getElementById("webpage").innerText = "Go to Strong Eye Care";
-				}
-				else if (id == "Tetris__MA_Z") {
-					document.getElementById("webpage").innerText = "Go to Windows Store";
-				}
-				else if (id == "Tetris__MA_T") {
-					document.getElementById("webpage").innerText = "Go to Fox Craftings";
-				}
-				else if (id == "Tetris__MA_L") {
-					document.getElementById("webpage").innerText = "Go to Fox Craftings Shop";
-				}
-				else if (id == "Tetris__MA_J") {
-					document.getElementById("webpage").innerText = "Go to Github Portfolio";
-				}
-				document.getElementById(id).setAttribute('diffuseColor', Math.random() + ' ' + Math.random() + ' ' + Math.random());
-			}
-			function website(id) {
-				if (id == "Tetris__MA_I") {
-					var c = confirm("Go to Pixel Ranchers");
-					if (c) {
-						window.open("http://pixelranchers.com","_self");
-					}
-				}
-				if (id == "Tetris__MA_O") {
-					var c = confirm("Go to Thingiverse Portoflio");
-					if (c) {
-						window.open("https://www.thingiverse.com/alexdfox/about","_self");
-					}
-				}
-				if (id == "Tetris__MA_S") {
-					var c = confirm("Go to Strong Eye Care");
-					if (c) {
-						window.open("http://strongeyecare.net","_self");
-					}
-				}
-				if (id == "Tetris__MA_Z") {
-					var c = confirm("Go to Windows Store");
-					if (c) {
-						window.open("https://www.microsoft.com/en-us/p/foxypassword-generator/9pmzpb0rndqx","_self");
-					}
-				}
-				if (id == "Tetris__MA_T") {
-					var c = confirm("Go to Fox Craftings");
-					if (c) {
-						window.open("http://www.foxcraftings.com","_self");
-					}
-				}
-				if (id == "Tetris__MA_L") {
-					var c = confirm("Go to Fox Craftings Shop");
-					if (c) {
-						window.open("http://shop.foxcraftings.com","_self");
-					}
-				}
-				if (id == "Tetris__MA_J") {
-					var c = confirm("Go to GitHub");
-					if (c) {
-						window.open("http://www.github.com/alex-d-fox/","_self");
-					}
-				}
-			}
-		</script>
-	</head>
-	<body>
-		<div class="portfolio">Alex Fox's Portfolio</div>
-		<x3d id='scene' showStat='false' showLog='false' x='0px' y='0px'>
-			<scene>
-				<Viewpoint id="front" position="0 0 150" orientation="0 0 0 3.1459" rotation="0 0.7 0 3.145" description="camera"></Viewpoint>
-				<inline url="tetris.x3d" nameSpaceName="Tetris" mapDEFToID="true"><Background transparency="1.0" /></inline> 
-			</scene>
-		</x3d>
-		<div id="webpage"><a href="mailto:alex.d.fox@icloud.com">alex.d.fox@icloud.com</a></div>
-	</body>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Alexander Dewey Fox | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ---------------- ROOT ---------------- */
+
+:root{
+--bg:#f4f6fb;
+--text:#1f2937;
+--card:rgba(255,255,255,.65);
+--border:rgba(255,255,255,.4);
+--primary:#4f7cff;
+--shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+.dark{
+--bg:#0f172a;
+--text:#e5e7eb;
+--card:rgba(30,41,59,.6);
+--border:rgba(255,255,255,.05);
+--shadow:0 25px 50px rgba(0,0,0,.6);
+}
+
+/* ---------------- GLOBAL ---------------- */
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:'Inter',system-ui;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+overflow-x:hidden;
+transition:.4s;
+}
+
+.container{
+max-width:1150px;
+margin:auto;
+padding:0 24px;
+}
+
+/* ---------------- HERO ---------------- */
+
+header{
+height:90vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+background:linear-gradient(
+-45deg,
+#1e3a8a,
+#2563eb,
+#4f46e5,
+#2563eb
+);
+background-size:400% 400%;
+animation:gradientMove 15s ease infinite;
+position:relative;
+overflow:hidden;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+.hero{
+position:relative;
+z-index:2;
+}
+
+.hero h1{
+font-size:3.5rem;
+letter-spacing:-1px;
+margin-bottom:10px;
+}
+
+.hero p{
+opacity:.9;
+font-size:1.2rem;
+margin-bottom:30px;
+}
+
+/* floating layer shapes */
+
+.shape{
+position:absolute;
+border-radius:30px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(8px);
+}
+
+.shape1{
+width:260px;
+height:260px;
+top:10%;
+left:10%;
+transform:rotate(25deg);
+}
+
+.shape2{
+width:180px;
+height:180px;
+bottom:15%;
+right:12%;
+transform:rotate(-20deg);
+}
+
+/* ---------------- NAV ---------------- */
+
+nav{
+margin-top:20px;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:500;
+opacity:.9;
+}
+
+nav a:hover{
+opacity:1;
+}
+
+/* ---------------- DARK MODE BUTTON ---------------- */
+
+.theme-btn{
+position:fixed;
+top:20px;
+right:20px;
+background:white;
+border:none;
+border-radius:50px;
+padding:10px 14px;
+cursor:pointer;
+box-shadow:var(--shadow);
+z-index:99;
+}
+
+/* ---------------- SECTIONS ---------------- */
+
+section{
+padding:100px 0;
+}
+
+h2{
+font-size:2rem;
+margin-bottom:30px;
+}
+
+/* ---------------- GLASS CARDS ---------------- */
+
+.card{
+background:var(--card);
+backdrop-filter:blur(14px);
+border:1px solid var(--border);
+border-radius:14px;
+padding:28px;
+box-shadow:var(--shadow);
+transition:.35s;
+transform-style:preserve-3d;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+}
+
+/* ---------------- GRID ---------------- */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:28px;
+}
+
+/* ---------------- TOOL ITEMS ---------------- */
+
+.tool-title{
+font-weight:600;
+color:var(--primary);
+}
+
+.tool-desc{
+font-size:.9rem;
+opacity:.7;
+}
+
+/* ---------------- PROJECT BUTTON ---------------- */
+
+.btn{
+display:inline-block;
+margin-top:12px;
+background:var(--primary);
+color:white;
+padding:8px 14px;
+border-radius:6px;
+font-size:.9rem;
+text-decoration:none;
+}
+
+.btn:hover{
+opacity:.85;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer{
+background:#020617;
+color:#94a3b8;
+text-align:center;
+padding:30px;
+}
+
+/* ---------------- 3D TILT ---------------- */
+
+.tilt{
+transform-style:preserve-3d;
+perspective:1000px;
+}
+
+.tilt-inner{
+transition:transform .25s;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<button class="theme-btn" onclick="toggleTheme()">🌙</button>
+
+<header>
+
+<div class="shape shape1"></div>
+<div class="shape shape2"></div>
+
+<div class="hero container">
+
+<h1>Alexander Dewey Fox</h1>
+<p>Software Developer • Digital Artist • 3D Printing Enthusiast</p>
+
+<nav>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+</nav>
+
+</div>
+</header>
+
+<div class="container">
+
+<section id="about">
+
+<h2>About Me</h2>
+
+<p style="margin-bottom:35px;">
+I build software, design graphics, and create functional 3D printed tools.
+My work combines programming, electronics, and digital fabrication.
+</p>
+
+<div class="grid">
+
+<div class="card tilt"><div class="tilt-inner">
+<div class="tool-title">Swift</div>
+<div class="tool-desc">macOS and iOS development</div>
+</div></div>
+
+<div class="card tilt"><div class="tilt-inner">
+<div class="tool-title">Python</div>
+<div class="tool-desc">Scripting and automation</div>
+</div></div>
+
+<div class="card tilt"><div class="tilt-inner">
+<div class="tool-title">Apple Ecosystem</div>
+<div class="tool-desc">Hardware + software integration</div>
+</div></div>
+
+<div class="card tilt"><div class="tilt-inner">
+<div class="tool-title">Blender</div>
+<div class="tool-desc">3D modeling and rendering</div>
+</div></div>
+
+<div class="card tilt"><div class="tilt-inner">
+<div class="tool-title">OpenSCAD</div>
+<div class="tool-desc">Parametric 3D design</div>
+</div></div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="grid">
+
+<div class="card tilt">
+<div class="tilt-inner">
+
+<h3>Software & Code</h3>
+<p>Open source software and development projects.</p>
+
+<a class="btn" href="https://github.com/alexanderdfox" target="_blank">
+GitHub
+</a>
+
+</div>
+</div>
+
+<div class="card tilt">
+<div class="tilt-inner">
+
+<h3>3D Designs</h3>
+<p>Functional 3D printable models.</p>
+
+<a class="btn" href="https://www.thingiverse.com/alexdfox/" target="_blank">
+Thingiverse
+</a>
+
+<br><br>
+
+<a class="btn" href="https://thangs.com/designer/alex.d.fox" target="_blank">
+Thangs
+</a>
+
+</div>
+</div>
+
+<div class="card tilt">
+<div class="tilt-inner">
+
+<h3>Circuit Designs</h3>
+<p>Electronic circuit simulations.</p>
+
+<a class="btn" href="https://everycircuit.com/list/keywords/@alexdfox" target="_blank">
+EveryCircuit
+</a>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+<footer>
+© 2026 Alexander Dewey Fox — Portfolio
+</footer>
+
+<script>
+
+/* DARK MODE */
+
+function toggleTheme(){
+document.body.classList.toggle("dark")
+}
+
+/* 2.5D CARD TILT */
+
+document.querySelectorAll(".tilt").forEach(card => {
+
+card.addEventListener("mousemove", e => {
+
+const inner = card.querySelector(".tilt-inner")
+
+const rect = card.getBoundingClientRect()
+
+const x = e.clientX - rect.left
+const y = e.clientY - rect.top
+
+const centerX = rect.width / 2
+const centerY = rect.height / 2
+
+const rotateX = (y-centerY)/12
+const rotateY = (centerX-x)/12
+
+inner.style.transform =
+`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+
+})
+
+card.addEventListener("mouseleave", () => {
+
+card.querySelector(".tilt-inner").style.transform =
+"rotateX(0) rotateY(0)"
+
+})
+
+})
+
+</script>
+
+</body>
 </html>
