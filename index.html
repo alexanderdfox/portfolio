@@ -36,7 +36,6 @@
 box-sizing:border-box;
 margin:0;
 padding:0;
-background: url('background.jpg');
 }
 
 body{
@@ -56,24 +55,32 @@ padding:0 24px;
 
 /* ---------------- HERO ---------------- */
 
-header{
-height:90vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-background:linear-gradient(
--45deg,
-#1e3a8a,
-#2563eb,
-#4f46e5,
-#2563eb
-);
-background-size:400% 400%;
-animation:gradientMove 15s ease infinite;
-position:relative;
-overflow:hidden;
+header {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+
+  /* FOX IMAGE AS BACKGROUND */
+  background: url('background.jpg') center/cover no-repeat;
+}
+
+/* Optional: dark overlay for readability */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.35); /* dark overlay */
+  z-index: 1;
+}
+
+.hero {
+  position: relative;
+  z-index: 2; /* make text appear above overlay */
 }
 
 @keyframes gradientMove{
